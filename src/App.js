@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function App() {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors } = useForm({
+    mode: 'onChange'
+  });
+
   const onSubmit = (data, e) => {
     console.log(data);
     e.target.reset();
@@ -17,6 +20,7 @@ function App() {
           <input
             name="email"
             placeholder="user@rapptrlabs.com"
+            // style={borderStyle}
             ref={register({
               required: true,
               maxLength: 50,
@@ -27,6 +31,7 @@ function App() {
           <label>Password:</label>
           <input
             name="password"
+            // style={borderStyle}
             placeholder="Must be at least 4 characters"
             ref={register({
               required: true,
@@ -37,6 +42,7 @@ function App() {
               },
             })}
           />
+          {errors.password && <p>Incorrect Password</p>}
           <button>Login</button>
         </form>
       </div>
