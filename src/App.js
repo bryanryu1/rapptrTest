@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 function App() {
   const { register, handleSubmit, watch, errors } = useForm({
-    mode: 'onChange'
+    mode: "onChange",
   });
 
   const onSubmit = (data, e) => {
@@ -20,18 +20,20 @@ function App() {
           <input
             name="email"
             placeholder="user@rapptrlabs.com"
-            // style={borderStyle}
+            style={{ border: errors.email ? "2px solid red" : "none" }}
             ref={register({
               required: true,
               maxLength: 50,
               validate: (value) => value.includes("@"),
             })}
           />
-          {errors.email && <p>Please enter a valid email</p>}
+          {errors.email && (
+            <p className="ErrorMessage">Please enter a valid email</p>
+          )}
           <label>Password:</label>
           <input
             name="password"
-            // style={borderStyle}
+            style={{ border: errors.password ? "2px solid red" : "none" }}
             placeholder="Must be at least 4 characters"
             ref={register({
               required: true,
@@ -42,8 +44,14 @@ function App() {
               },
             })}
           />
-          {errors.password && <p>Incorrect Password</p>}
-          <button>Login</button>
+          {errors.password && <p className="ErrorMessage">Invalid Password</p>}
+          <button
+            style={{
+              opacity: errors.email || errors.password ? "50%" : "none",
+            }}
+          >
+            Login
+          </button>
         </form>
       </div>
     </div>

@@ -97,12 +97,16 @@ button{
   font-weight: 100;
 }
 
-p {
+.ErrorMessage{
   color: #bf1650;
 }
 
-p::before {
+.ErrorMessage::before {
   display: inline;
   content: "⚠ ";
 }
 
+.ErrorMessage::after {
+  display: inline;
+  content: " ⚠";
+}
