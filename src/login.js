@@ -2,14 +2,40 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { IoPersonCircleSharp, IoLockClosedSharp } from "react-icons/io5";
 
+const axios = require("axios");
+
 function Login() {
-  const { register, handleSubmit, watch, errors } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     mode: "onChange",
   });
 
   const onSubmit = (data, e) => {
-    console.log(data);
-    e.target.reset();
+    // fetchAPI();
+    // e.target.reset();
+    console.log(data)
+    
+  };
+
+  const fetchAPI = async (data) => {
+      const info = JSON.stringify({
+        email: data.email,
+        password: data.password,
+      });
+    const config = {
+      method: "post",
+      url: "http://dev.rapptrlabs.com/Tests/scripts/user-login.php",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: info,
+    };
+
+    try {
+      const response = await axios(config);
+      console.log(JSON.stringify(response.data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
