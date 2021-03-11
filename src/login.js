@@ -1,6 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { IoPersonCircleSharp, IoLockClosedSharp } from "react-icons/io5";
+import {withRouter, useHistory} from 'react-router-dom'
+
+// import Todo from './todo'
 
 const axios = require("axios");
 
@@ -9,11 +12,13 @@ function Login() {
     mode: "onChange",
   });
 
-  const onSubmit = (data, e) => {
-    // fetchAPI();
+  const history = useHistory();
+
+  async function onSubmit (data, e) {
+    // await fetchAPI();
     // e.target.reset();
     console.log(data)
-    
+    history.push("/todo")
   };
 
   const fetchAPI = async (data) => {
@@ -100,4 +105,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default withRouter(Login);

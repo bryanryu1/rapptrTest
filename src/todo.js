@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const Todo = () =>{
-    <div>
-        THIS IS THE TODO PAGE
-    </div>
-}
+function Todo() {
+  return <div className='todoPage'>THIS IS THE TODO PAGE HEREREE!!!!!!!!</div>;
+};
 
-export default Todo
+export default Todo;
