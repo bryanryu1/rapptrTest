@@ -84,3 +84,50 @@ input {
   content: " ⚠";
 }
 
+.todoApp{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
+  min-height: 600px;
+  background: rgb(64, 66, 66);
+  text-align: center;
+  margin: 50px auto;
+  border-radius: 4px;
+  padding-bottom: 32px;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todoForm{
+  margin-bottom: 32px;
+}
+
+.addTodo{
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px;
+  border: 2px solid #2fccfc;
+  outline: none;
+  width: 320px;
+  color: black;
+}
+
+/* .addTodo.edit{
+  border: 2px solid red;
+} */
+
+.addTodoButton {
+  padding: 16px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  background: #2fccfc;
+  color: #fff;
+  text-transform: capitalize;
+}
+
