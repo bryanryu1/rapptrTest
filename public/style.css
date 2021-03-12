@@ -18,6 +18,7 @@ body {
 
 .Title {
   text-align: center;
+  color: white;
 }
 
 .FormContainer{
@@ -58,7 +59,7 @@ input {
   text-align: center;
 }
 
-button{
+.submit{
   background:#2fccfc;
   color: white;
   border: none;
@@ -82,10 +83,4 @@ button{
   display: inline;
   content: " ⚠";
 }
-
-.todoPage{
-  color: white;
-  size: 50px;
-}
-
 

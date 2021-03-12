@@ -1,9 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { IoPersonCircleSharp, IoLockClosedSharp } from "react-icons/io5";
-import {withRouter, useHistory} from 'react-router-dom'
-
-// import Todo from './todo'
+import { withRouter, useHistory } from "react-router-dom";
 
 const axios = require("axios");
 
@@ -14,18 +12,18 @@ function Login() {
 
   const history = useHistory();
 
-  async function onSubmit (data, e) {
+  async function onSubmit(data, e) {
     // await fetchAPI();
     // e.target.reset();
-    console.log(data)
-    history.push("/todo")
-  };
+    console.log(data);
+    history.push("/todo");
+  }
 
   const fetchAPI = async (data) => {
-      const info = JSON.stringify({
-        email: data.email,
-        password: data.password,
-      });
+    const info = JSON.stringify({
+      email: data.email,
+      password: data.password,
+    });
     const config = {
       method: "post",
       url: "http://dev.rapptrlabs.com/Tests/scripts/user-login.php",
@@ -91,6 +89,7 @@ function Login() {
           {errors.password && <p className="ErrorMessage">Invalid Password</p>}
           <div className="buttonWrapper">
             <button
+              className="submit"
               style={{
                 opacity: errors.email || errors.password ? "50%" : "100%",
               }}
