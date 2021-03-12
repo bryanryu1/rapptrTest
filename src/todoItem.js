@@ -24,7 +24,7 @@ function TodoItem({ todos, completeTodo, removeTodo, updateTodo }) {
 
   return todos.map((todo, index) => (
     <div
-      className={todo.isComplete ? "todoComplete" : "todoRow"}
+      className={todo.isComplete ? "todoRow complete" : "todoRow"}
       ley={index}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
@@ -33,12 +33,13 @@ function TodoItem({ todos, completeTodo, removeTodo, updateTodo }) {
       <div className="icons">
         <IoPencilSharp
           size={20}
-          color={"#2fccfc"}
+          color={"white"}
           onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          className="editIcon"
         />
         <IoTrashSharp
           size={20}
-          color={"#2fccfc"}
+          color={"white"}
           onClick={() => removeTodo(todo.id)}
           className="deleteIcon"
         />

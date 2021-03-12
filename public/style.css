@@ -115,10 +115,6 @@ input {
   color: black;
 }
 
-/* .addTodo.edit{
-  border: 2px solid red;
-} */
-
 .addTodoButton {
   padding: 16px;
   margin-left: 20px;
@@ -127,7 +123,28 @@ input {
   cursor: pointer;
   outline: none;
   background: #2fccfc;
-  color: #fff;
+  color: white;
   text-transform: capitalize;
 }
 
+.todoRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: white;
+  background: #2fccfc;
+  padding: 20px;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.deleteIcon{
+  margin-left: 10px;
+}
