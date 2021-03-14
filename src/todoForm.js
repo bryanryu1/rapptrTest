@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { IoSearch } from "react-icons/io5";
+import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 function Todo(props) {
@@ -12,10 +11,6 @@ function Todo(props) {
   const [input, setInput] = useState("");
 
   const inputRef = useRef(null)
-
-  useEffect(() => {
-    inputRef.current.focus()
-  })
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -37,8 +32,6 @@ function Todo(props) {
     //   {/* <button onSubmit={logOut()}></button> */}
     //   <div className="TodoContainer">
         <form onSubmit={handleSubmit} className='todoForm'>
-          {/* <IoSearch color={"#2fccfc"} size={20}/>
-          <input className='Search' placeholder='Search' name='search'  /> */}
           <input
             className="addTodo edit"
             name="text"

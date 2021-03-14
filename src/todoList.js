@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import Todo from "./todo";
+import React, { useState, useEffect } from "react";
+import Todo from "./todoForm";
 import TodoItem from "./todoItem";
+
+import { IoSearch } from "react-icons/io5";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
+
+  const [input, setInput] = useState("");
 
   const addTodo = (todo) => {
     if (todo.text.length <= 0 || todo.text.length > 25) {
@@ -36,15 +40,34 @@ function TodoList() {
       return;
     }
 
-    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)))
-  }
+    setTodos((prev) =>
+      prev.map((item) => (item.id === todoId ? newValue : item))
+    );
+  };
+
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  };
 
   return (
-    <div className='todoApp'>
+    <div className="todoApp">
       <h1 className="Title">My To-Do List</h1>
+      <form>
+        <IoSearch color={"#2fccfc"} size={20} />
+        <input
+          className="Search"
+          placeholder="Search"
+          name="search"
+          autoFocus
+          type="text"
+          value={input}
+          onChange={handleChange}
+        />
+      </form>
       <Todo onSubmit={addTodo} />
       <TodoItem
         todos={todos}
+        search={input}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
