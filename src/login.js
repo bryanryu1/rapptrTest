@@ -4,6 +4,7 @@ import { IoPersonCircleSharp, IoLockClosedSharp } from "react-icons/io5";
 import { withRouter, useHistory } from "react-router-dom";
 
 const axios = require("axios");
+const FormData = require("form-data");
 
 function Login() {
   const { register, handleSubmit, errors } = useForm({
@@ -13,31 +14,29 @@ function Login() {
   const history = useHistory();
 
   async function onSubmit(data, e) {
-    // await fetchAPI();
-    // e.target.reset();
-    console.log(data);
-    history.push("/todo");
+    await fetchAPI(data);
+    e.target.reset();
   }
 
   const fetchAPI = async (data) => {
-    const info = JSON.stringify({
-      email: data.email,
-      password: data.password,
-    });
-    const config = {
+    var formData = new FormData();
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+
+    var config = {
       method: "post",
       url: "http://dev.rapptrlabs.com/Tests/scripts/user-login.php",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: info,
+      data: formData,
     };
 
     try {
       const response = await axios(config);
-      console.log(JSON.stringify(response.data));
+      localStorage.setItem("user", response.data);
+      alert(`Logged in as ${response.data.user_username}!`);
+      history.push("/todo");
     } catch (error) {
       console.log(error);
+      alert(`Something isn't right... ${error}`);
     }
   };
 
