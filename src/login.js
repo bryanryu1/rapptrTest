@@ -7,12 +7,14 @@ const axios = require("axios");
 const FormData = require("form-data");
 
 function Login() {
+  //USING REACT HOOK FORM//
   const { register, handleSubmit, errors } = useForm({
     mode: "onChange",
   });
 
   const history = useHistory();
 
+  //LOGIN FUNCTION//
   async function onSubmit(data, e) {
     await fetchAPI(data);
     e.target.reset();
@@ -31,7 +33,7 @@ function Login() {
 
     try {
       const response = await axios(config);
-      localStorage.setItem("user", response.data);
+      localStorage.setItem("user", JSON.stringify(response.data));
       alert(`Logged in as ${response.data.user_username}!`);
       history.push("/todo");
     } catch (error) {

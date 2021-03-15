@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 
 function Todo({onSubmit}) {
+  //INPUT FOR ADDING TODO//
   const [input, setInput] = useState("");
 
   const inputRef = useRef(null);
@@ -9,6 +10,7 @@ function Todo({onSubmit}) {
     setInput(e.target.value);
   };
 
+  //ADD BUTTON//
   const handleSubmit = (e) => {
     e.preventDefault();
 

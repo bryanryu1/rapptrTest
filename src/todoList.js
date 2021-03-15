@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 
@@ -6,10 +6,35 @@ import Todo from "./todoForm";
 import TodoItem from "./todoItem";
 
 function TodoList() {
+  //ARRAY OF TODOS//
   const [todos, setTodos] = useState([]);
 
+  //SEARCH BAR//
   const [input, setInput] = useState("");
 
+  //LOCAL STORAGE//
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  useEffect(() => {
+    saveTodos();
+  }, [todos]);
+
+  const saveTodos = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  };
+
+  const getTodos = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      const storage = JSON.parse(localStorage.getItem("todos"));
+      setTodos(storage);
+    }
+  };
+
+  //LOGOUT FUNCTION//
   const history = useHistory();
 
   const logOut = () => {
@@ -17,14 +42,17 @@ function TodoList() {
     console.log(localStorage);
   };
 
+  //ADD TODO GOES TO TODO FORM//
   const addTodo = (todo) => {
     if (todo.text.length <= 0 || todo.text.length > 25) {
       return <p className="ErrorMessage">Invalid Todo!</p>;
     }
+
     const newTodos = [todo, ...todos];
     setTodos(newTodos);
   };
 
+  //COMPLETE TODO, UPDATE TODO, REMOVE TODO GOES TO TODO ITEM//
   const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
