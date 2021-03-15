@@ -45,6 +45,12 @@ label {
 
 }
 
+.loginIcon{
+  position: absolute;
+  padding-top: 10px;
+  padding-right: -10px;
+}
+
 input {
   flex: 1;
   box-sizing: border-box;
@@ -154,6 +160,12 @@ input {
 .logOutForm{
   display: flex;
   justify-content: flex-end;
+}
+
+.searchIcon{
+  position: absolute;
+  padding-top: 10px;
+  padding-right: -21px;
 }
 
 .search{

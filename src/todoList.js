@@ -92,7 +92,7 @@ function TodoList() {
       <div className="todoApp">
         <h1 className="Title">My To-Do List</h1>
         <form>
-          <IoSearch className='searchIcon' color={"#2fccfc"} size={20} />
+          <IoSearch className='searchIcon' color={"#2fccfc"} size={15} />
           <input
             className="Search"
             placeholder="Search"

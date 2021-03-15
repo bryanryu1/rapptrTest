@@ -49,7 +49,7 @@ function Login() {
         <form className="Form" onSubmit={handleSubmit(onSubmit)}>
           <label>Email:</label>
           <div className="InputWrapper">
-            <IoPersonCircleSharp color={"#2fccfc"} size={20} />
+            <IoPersonCircleSharp className='loginIcon' color={"#2fccfc"} size={16} />
             <input
               className="Input"
               name="email"
@@ -70,7 +70,7 @@ function Login() {
           )}
           <label>Password:</label>
           <div className="InputWrapper">
-            <IoLockClosedSharp color={"#2fccfc"} size={20} />
+            <IoLockClosedSharp className='loginIcon' color={"#2fccfc"} size={15} />
             <input
               className="Input"
               name="password"
