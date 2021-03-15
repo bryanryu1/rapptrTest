@@ -7,7 +7,7 @@ html{
 }
 
 body {
-  margin-top: 5rem;
+  margin-top: 3rem;
   font-family: 'Roboto', sans-serif;
   
 }
@@ -19,6 +19,7 @@ body {
 .Title {
   text-align: center;
   color: white;
+  margin-top: 5rem;
 }
 
 .FormContainer{
@@ -88,7 +89,7 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  width: 520px;
+  width: 60%;
   min-height: 600px;
   background: rgb(64, 66, 66);
   text-align: center;
@@ -111,12 +112,12 @@ input {
   border-radius: 4px;
   border: 2px solid #2fccfc;
   outline: none;
-  width: 320px;
+  width: 30%;
   color: black;
 }
 
 .addTodoButton {
-  padding: 16px;
+  padding: 15px 20px 15px 20px;
   margin-left: 20px;
   border: none;
   border-radius: 4px;
@@ -124,7 +125,8 @@ input {
   outline: none;
   background: #2fccfc;
   color: white;
-  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 100;
 }
 
 .todoRow{
@@ -136,7 +138,7 @@ input {
   background: #2fccfc;
   padding: 20px;
   border-radius: 4px;
-  width: 70%;
+  width: 50%;
 }
 
 .icons{
@@ -147,4 +149,29 @@ input {
 
 .deleteIcon{
   margin-left: 10px;
+}
+
+.logOutForm{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search{
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px;
+  border: 2px solid #2fccfc;
+  outline: none;
+  width: 30%;
+  color: black;
+}
+
+.logOut{
+  margin-right: 5%;
+  background:#2fccfc;
+  color: white;
+  border: none;
+  padding: 15px 20px 15px 20px;
+  font-size: 20px;
+  font-weight: 100;
+  border-radius: 4px;
 }

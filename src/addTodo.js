@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-function Todo({onSubmit}) {
+function AddTodo({ onSubmit }) {
   //INPUT FOR ADDING TODO//
   const [input, setInput] = useState("");
 
@@ -29,6 +29,7 @@ function Todo({onSubmit}) {
         name="text"
         type="text"
         placeholder="Add a todo"
+        autoFocus
         value={input}
         onChange={handleChange}
         ref={inputRef}
@@ -38,4 +39,4 @@ function Todo({onSubmit}) {
   );
 }
 
-export default Todo;
+export default AddTodo;

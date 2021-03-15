@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path='/login' component={Login} />
+        <Route path="/login" component={Login} />
         <Route path="/todo" component={TodoList} />
       </Switch>
     </Router>

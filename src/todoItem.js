@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Todo from "./todoForm";
+import AddTodo from "./addTodo";
 
 import { IoPencilSharp, IoTrashSharp } from "react-icons/io5";
 
@@ -19,10 +19,9 @@ function TodoItem({ todos, completeTodo, removeTodo, updateTodo, search }) {
   };
 
   if (edit.id) {
-    return <Todo edit={edit} onSubmit={submitUpdate} />;
+    return <AddTodo edit={edit} onSubmit={submitUpdate} />;
   }
 
-  
   //IF THERE IS SEARCH INPUT, CHANGE DISPLAY OF TODOS//
   if (search) {
     let filtered = todos.filter((todo) => {

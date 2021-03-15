@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 
-import Todo from "./todoForm";
+import AddTodo from "./addTodo";
 import TodoItem from "./todoItem";
 
 function TodoList() {
@@ -38,8 +38,9 @@ function TodoList() {
   const history = useHistory();
 
   const logOut = () => {
-    // history.push("/login");
-    console.log(localStorage);
+    localStorage.clear();
+    history.push("/login");
+    alert("Successfully Logged Out");
   };
 
   //ADD TODO GOES TO TODO FORM//
@@ -83,7 +84,7 @@ function TodoList() {
 
   return (
     <div>
-      <form>
+      <form className='logOutForm'>
         <button className="logOut" name="logOut" type="button" onClick={logOut}>
           Logout
         </button>
@@ -91,18 +92,17 @@ function TodoList() {
       <div className="todoApp">
         <h1 className="Title">My To-Do List</h1>
         <form>
-          <IoSearch color={"#2fccfc"} size={20} />
+          <IoSearch className='searchIcon' color={"#2fccfc"} size={20} />
           <input
             className="Search"
             placeholder="Search"
             name="search"
-            autoFocus
             type="text"
             value={input}
             onChange={handleChange}
           />
         </form>
-        <Todo onSubmit={addTodo} />
+        <AddTodo onSubmit={addTodo} />
         <TodoItem
           todos={todos}
           search={input}
